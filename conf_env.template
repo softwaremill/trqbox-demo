@@ -1,0 +1,7 @@
+#!/bin/bash
+export TORQUEBOX_HOME=
+export JBOSS_HOME=$TORQUEBOX_HOME/jboss
+export JBOSS_CONF=default
+export JRUBY_HOME=$TORQUEBOX_HOME/jruby
+export PATH=$JRUBY_HOME/bin:$PATH
+export M2_REPO=~/.m2/repository
