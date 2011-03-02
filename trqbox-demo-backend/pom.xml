@@ -40,12 +40,6 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- SML common -->
-        <dependency>
-            <groupId>pl.softwaremill.common</groupId>
-            <artifactId>softwaremill-util</artifactId>
-        </dependency>
-
         <!-- TODO: bug in weld, remove -->
         <dependency>
             <groupId>org.jboss.logging</groupId>
