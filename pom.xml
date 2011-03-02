@@ -16,6 +16,7 @@
     <modules>
         <module>trqbox-demo-backend</module>
         <module>trqbox-demo-frontend</module>
+        <module>trqbox-demo-ror-cdi-int</module>
     </modules>
 
     <!-- Common dependencies -->
