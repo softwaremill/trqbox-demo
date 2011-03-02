@@ -3,7 +3,6 @@ class WelcomeController < ApplicationController
 
   def index
     @rails_msg = "Hello from Rails!"
-    puts "X #{inject(HelloWorld)}"
-    #@cdi_msg = inject(HelloWorld).message
+    @cdi_msg = inject(HelloWorld).message
   end
 end
