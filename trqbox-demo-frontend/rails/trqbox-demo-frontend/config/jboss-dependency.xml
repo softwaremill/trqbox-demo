@@ -1,0 +1,3 @@
+<dependency xmlns="urn:jboss:dependency:1.0">
+  <item whenRequired="PreDescribe" dependentState="Installed">trqbox-demo-ror-cdi-int</item>
+</dependency>
