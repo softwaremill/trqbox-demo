@@ -43,15 +43,7 @@
         <!-- SML common -->
         <dependency>
             <groupId>pl.softwaremill.common</groupId>
-            <artifactId>softwaremill-conf</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pl.softwaremill.common</groupId>
             <artifactId>softwaremill-util</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>pl.softwaremill.common</groupId>
-            <artifactId>softwaremill-cdi</artifactId>
         </dependency>
 
         <!-- TODO: bug in weld, remove -->
