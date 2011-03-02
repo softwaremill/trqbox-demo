@@ -34,6 +34,7 @@
             <scope>provided</scope>
         </dependency>
 
+        <!-- SML common -->
         <dependency>
             <groupId>pl.softwaremill.common</groupId>
             <artifactId>softwaremill-util</artifactId>
