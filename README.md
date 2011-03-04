@@ -27,14 +27,11 @@ The `D` class comes from
  [Softwaremill common](https://github.com/softwaremill/softwaremill-common),
  and is a simple utility class for setting up (testable) static lookups of dependencies.
 
-`trqbox-demo-ror-cdi-int` - the integration layer. Currently this is a `.war` which contains the backend and all
- dependencies. It is deployed and it's contents placed in the default classloader domain (see `jboss-classloading.xml`).
- The frontend must be deployed after this war; we specify this by `alises.txt` in `-int` and `jboss-depeendency.xml` in
- `-frontend`. Also, it contains a servlet listener which setups static lookups (using `D`) and is specified in the
- `web.xml` for `-frontend`, which is placed in the `/config` directory.
-
-In the future I hope to make the integration much nicer by deploying the jars straight into the rails app, but this
- doesn't work yet.
+`trqbox-demo-ror-cdi-int` - the integration layer. The packaging is defined as `war`, but the war is never deployed.
+ This is done only in order to have all the jars with their dependencies in one directory. These jars are then copied
+ to `trqbox-demo-frontend/rails/trqbox-demo-frontend/lib` (this of this as `WEB-INF/lib`), and became part of the
+ deployed Rails application (`.knob`). The knob also contains a `web.xml` file, in the `config` directory, specifying
+ the listener, which setups `D`.
 
 ## Deploying the example
 
@@ -49,7 +46,7 @@ In the future I hope to make the integration much nicer by deploying the jars st
  This should install Rails.
 1. Build the project: `mvn clean install`
 1. Now start up the AS: go to `$TORQUEBOX_HOME/jboss/bin` and execute `run.sh`.
-1. Deploy the backend and frontend: run the `deploy.sh` script (it copies the `.war` into JBoss's deploy directory,
- and invokes a Torquebox Rake task which copies the `.knob` into the same place).
+1. Deploy the backend and frontend: run the `deploy.sh` script (it copies the jars into the lib directory of the Rails
+ app, and invokes a Torquebox Rake task which copies the `.knob` into JBoss's deploy directory).
 1. Test that it works: go to `http://localhost:8080/welcome/index`. You should see welcome messages, coming both
  from Rails and from the CDI bean.
