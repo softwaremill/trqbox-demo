@@ -1,6 +1,5 @@
 package pl.softwaremill.demo;
 
-import org.jboss.weld.servlet.WeldListener;
 import pl.softwaremill.common.util.dependency.BeanManagerDependencyProvider;
 import pl.softwaremill.common.util.dependency.D;
 import pl.softwaremill.common.util.dependency.DependencyProvider;
@@ -9,17 +8,16 @@ import javax.enterprise.inject.spi.BeanManager;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.ServletContextEvent;
+import javax.servlet.ServletContextListener;
 
 /**
  * @author Adam Warski (adam at warski dot org)
  */
-public class StartupListener extends WeldListener {
+public class StartupListener implements ServletContextListener {
     private DependencyProvider registeredDependencyProvider;
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        super.contextInitialized(sce);
-
         // Setting a dependency provider with the right bean manager
         BeanManager bm;
         try {
@@ -33,8 +31,6 @@ public class StartupListener extends WeldListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent sce) {
-        super.contextDestroyed(sce);
-
         // Clearing up
         if (registeredDependencyProvider != null) {
             D.unregister(registeredDependencyProvider);
