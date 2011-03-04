@@ -1,0 +1,5 @@
+jobs:
+  seconds:
+    job: SecondsCounterInvoker
+    description: Count seconds
+    cron: "* * * * * ?"
