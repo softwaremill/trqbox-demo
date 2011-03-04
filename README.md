@@ -28,8 +28,8 @@ The `D` class comes from
  and is a simple utility class for setting up (testable) static lookups of dependencies.
 
 `trqbox-demo-ror-cdi-int` - the integration layer. The packaging is defined as `war`, but the war is never deployed.
- This is done only in order to have all the jars with their dependencies in one directory. These jars are then copied
- to `trqbox-demo-frontend/rails/trqbox-demo-frontend/lib` (this of this as `WEB-INF/lib`), and became part of the
+ It is created only in order to have all the jars with their dependencies in one directory. These jars are then copied
+ to `trqbox-demo-frontend/rails/trqbox-demo-frontend/lib` (think of this as `WEB-INF/lib`), and become part of the
  deployed Rails application (`.knob`). The knob also contains a `web.xml` file, in the `config` directory, specifying
  the listener, which setups `D`.
 
