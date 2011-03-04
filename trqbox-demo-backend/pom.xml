@@ -46,6 +46,12 @@
             <artifactId>jboss-logging</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+           <groupId>org.twitter4j</groupId>
+           <artifactId>twitter4j-core</artifactId>
+           <version>2.2.0</version>
+        </dependency>
     </dependencies>
 
     <profiles>
