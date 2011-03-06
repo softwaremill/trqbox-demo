@@ -3,3 +3,8 @@ jobs:
     job: SecondsCounterInvoker
     description: Count seconds
     cron: "* * * * * ?"
+
+  twitter:
+    job: TwitterChecker
+    description: Tweets etc.
+    cron: "*/10 * * * * ?"

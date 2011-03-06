@@ -1,5 +1,8 @@
 TrqboxDemoFrontend::Application.routes.draw do
   get "welcome/index"
+  get "welcome/followers"
+  get "welcome/tweets"
+  get "welcome/search"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

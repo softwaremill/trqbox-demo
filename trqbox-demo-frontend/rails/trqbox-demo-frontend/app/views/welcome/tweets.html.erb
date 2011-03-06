@@ -1,0 +1,13 @@
+<p><strong>Last tweets from friends</strong></p>
+
+<span style="font-size: smaller;">Updated on: <%= Time.now.to_s %></span>
+
+<ul>
+<%
+    @twitter_tweets.each do |tweet|
+%>
+    <li><b><%=tweet.user.name%></b> <%= tweet.text %> on [<i><%= tweet.created_at %></i>]</li>
+<%
+    end
+%>
+</ul>

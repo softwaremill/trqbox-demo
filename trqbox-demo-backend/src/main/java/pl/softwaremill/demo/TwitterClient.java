@@ -18,22 +18,29 @@ public class TwitterClient implements Serializable {
 
     private List<User> users;
     private List<Status> statuses;
+    private QueryResult search;
 
     @Inject
     public TwitterClient(Twitter twitter) {
         this.twitter = twitter;
     }
 
-    public TwitterClient() { }
+    public TwitterClient() {
+    }
 
     public void loadTweets() throws TwitterException {
         statuses = twitter.getFriendsTimeline();
     }
-                                              ;
+
     public void loadFriends() throws TwitterException {
         IDs followersIDs = twitter.getFollowersIDs(-1);
 
         users = twitter.lookupUsers(followersIDs.getIDs());
+    }
+
+    public void loadSearch() throws TwitterException {
+        Query query = new Query("jbison");
+        search = twitter.search(query);
     }
 
     public List<User> getUsers() {
@@ -42,6 +49,10 @@ public class TwitterClient implements Serializable {
 
     public List<Status> getStatuses() {
         return statuses;
+    }
+
+    public QueryResult getSearch() {
+        return search;
     }
 
     public static void main(String[] args) throws TwitterException {
@@ -63,6 +74,12 @@ public class TwitterClient implements Serializable {
 
         for (User user : users) {
             System.out.println(user.getName());
+        }
+
+        Query query = new Query("jbison");
+        QueryResult result = twitter.search(query);
+        for (Tweet tweet : result.getTweets()) {
+            System.out.println(tweet.getFromUser() + ":" + tweet.getText());
         }
 
     }

@@ -2,3 +2,16 @@
 
 <p><strong>From Rails:</strong> <%= @rails_msg %></p>
 <p><strong>From CDI:</strong> <%= @cdi_msg %></p>
+
+<h2>@jbisoncom twitter status</h2>
+<script type="text/javascript">
+   new Ajax.PeriodicalUpdater('followers', '/welcome/followers', { method: 'get', frequency: 2});
+   new Ajax.PeriodicalUpdater('tweets', '/welcome/tweets', { method: 'get', frequency: 2});
+   new Ajax.PeriodicalUpdater('search', '/welcome/search', { method: 'get', frequency: 2});
+</script>
+
+<div id="followers"></div>
+
+<div id="tweets"></div>
+
+<div id="search"></div>

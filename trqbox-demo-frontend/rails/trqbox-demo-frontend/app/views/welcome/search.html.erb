@@ -1,0 +1,13 @@
+<p><strong>Search for 'jbison'</strong></p>
+
+<span style="font-size: smaller;">Updated on: <%= Time.now.to_s %></span>
+
+<ul>
+<%
+    @twitter_search.tweets.each do |tweet|
+%>
+    <li><b><%=tweet.from_user%></b> <%= tweet.text %> on [<i><%= tweet.created_at %></i>]</li>
+<%
+    end
+%>
+</ul>
