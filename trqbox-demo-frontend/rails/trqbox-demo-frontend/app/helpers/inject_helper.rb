@@ -1,7 +1,7 @@
 module InjectHelper
   include_class "pl.softwaremill.common.util.dependency.D"
 
-  def inject(what)
+  def lookup(what)
     D.inject(what.java_class)
   end
 end

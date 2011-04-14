@@ -6,7 +6,7 @@ class TwitterChecker
   attr_accessor :log
 
   def run()
-    twitter = inject(TwitterClient)
+    twitter = lookup(TwitterClient)
 
     twitter.load_tweets
 

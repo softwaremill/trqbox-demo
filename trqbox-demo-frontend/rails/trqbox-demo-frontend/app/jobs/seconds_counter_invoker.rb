@@ -6,7 +6,7 @@ class SecondsCounterInvoker
   attr_accessor :log
 
   def run()
-    inject(SecondsCounter).inc
+    lookup(SecondsCounter).inc
     log.info("Done")
   end
 end
