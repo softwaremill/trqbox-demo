@@ -7,7 +7,7 @@ else
     source conf_env
 fi
 
-export YML_FILE=$JBOSS_HOME/server/default/deploy/trqbox-demo-frontend-knob.yml
+export YML_FILE=$TORQUEBOX_HOME/apps/trqbox-demo-frontend-knob.yml
 if [ -e $YML_FILE ]; then
 	echo "Redeploy, touching"
 	touch $YML_FILE
