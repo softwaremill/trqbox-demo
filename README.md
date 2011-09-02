@@ -11,13 +11,13 @@
 
 The lookup is done in the following way:
 
-    result = inject(MyJavaBean).some_method(param1, param2)
+    result = lookup(MyJavaBean).some_method(param1, param2)
 
 Where the inject method is simply:
 
     include_class "pl.softwaremill.common.util.dependency.D"
 
-    def inject(what)
+    def lookup(what)
         D.inject(what.java_class)
     end
 
@@ -36,7 +36,7 @@ The `D` class comes from
 ## Deploying the example
 
 1. Clone this repository
-1. [Download latest Torquebox](http://torquebox.org/torquebox-dev.zip)
+1. [Download latest Torquebox](http://torquebox.org/2x/builds/)
 1. Unzip it next to the repository
 1. Create a `conf_env` file basing on `conf_env_template`. There you need to fill in the `TORQUEBOX_HOME` property,
  which should be the directory that got created by unpacking Torquebox.
@@ -45,7 +45,7 @@ The `D` class comes from
 1. Install dependencies: go to `trqbox-demo-frontend/rails/trqbox-demo-frontend` and run: `jruby -S bundle install`.
  This should install Rails.
 1. Build the project: `mvn clean install`
-1. Now start up the AS: go to `$TORQUEBOX_HOME/jboss/bin` and execute `run.sh`.
+1. Now start up the AS: go to `$TORQUEBOX_HOME/jboss/bin` and execute `standalone.sh`.
 1. Deploy the backend and frontend: run the `deploy.sh` script (it copies the jars into the lib directory of the Rails
  app, and invokes a Torquebox Rake task which copies the `.knob` into JBoss's deploy directory).
 1. Test that it works: go to `http://localhost:8080/welcome/index`. You should see welcome messages, coming both
@@ -54,7 +54,7 @@ The `D` class comes from
 ## Creating this application from scratch
 
 ### Setting up the project
-1. Download & unzip latest (Torquebox)[http://torquebox.org/torquebox-dev.zip]
+1. Download & unzip latest (Torquebox)[http://torquebox.org/2x/builds/]
 1. Create a maven project with three modules (backend, frontend, integration). The backend needs JEE6 APIs, the
  integration module should depend on the backend (so that the jar is included) an
 1. Create a `conf_env` and source it (a convenience script - so that the proper path to Torquebox and JRuby is set)
@@ -68,7 +68,7 @@ The `D` class comes from
 1. Install any dependencies of the new project: `cd trqbox-demo-frontend; jruby -S bundle install`
 1. Deploy the application: basically run `jruby -S rake torquebox:deploy` in the
  `trqbox-demo-frontend/rails/trqbox-demo-frontend` directory. This will generate a `trqbox-demo-frontend-knob.yml` file
- in `jboss/server/default/deploy`. Look inside it - nothing complicated there :). To redeploy the application, you just
+ in `jboss/standalone/deployments`. Look inside it - nothing complicated there :). To redeploy the application, you just
  need to touch that file.
 1. Open up `http://localhost:8080` - you should see the welcome screen.
 1. Generate a controller (using the Rails generator), try adding some methods. No need to redeploy, the changes are

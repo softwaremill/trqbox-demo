@@ -1,9 +1,9 @@
 class SecondsCounterInvoker
-  include InjectHelper
+  #include InjectHelper
 
-  include_class "pl.softwaremill.demo.SecondsCounter"
+  #include_class "pl.softwaremill.demo.SecondsCounter"
 
   def run()
-    lookup(SecondsCounter).inc
+    #lookup(SecondsCounter).inc
   end
 end
