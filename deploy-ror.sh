@@ -10,7 +10,7 @@ fi
 export YML_FILE=$TORQUEBOX_HOME/jboss/standalone/deployments/trqbox-demo-frontend-knob.yml
 if [ -e $YML_FILE ]; then
 	echo "Redeploy, touching"
-	touch $YML_FILE
+	touch $YML_FILE.dodeploy
 else
 	echo "First time deploy, running rake"
 	cd trqbox-demo-frontend/rails/trqbox-demo-frontend
